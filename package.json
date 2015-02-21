@@ -36,9 +36,9 @@
     "moment": "~2.6.0"
   },
   "dependencies": {
-    "oauth": "~0.9.11",
     "bunyan": "~0.22.3",
-    "simple-errors": "~0.0.4"
+    "oauth": "~0.9.11",
+    "simple-errors": "0.0.5"
   },
   "keywords": []
 }
