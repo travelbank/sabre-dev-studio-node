@@ -1,28 +1,28 @@
 {
   "name": "sabre-dev-studio",
   "description": "NodeJS wrapper for the Sabre Dev Studio API",
-  "version": "1.0.1",
-  "homepage": "http://developer.sabre.com",
+  "version": "0.1",
+  "homepage": "http://wbengine.ru",
   "author": {
-    "name": "Barrett Clark",
-    "email": "barrett.clark@sabre.com"
+    "name": "Konsantin Bodnia",
+    "email": "kest.bodnya@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SabreDevStudio/sabre-dev-studio-node.git"
+    "url": "https://github.com/qstyler/sabre-dev-studio-node.git"
   },
   "bugs": {
-    "url": "https://github.com/SabreDevStudio/sabre-dev-studio-node/issues"
+    "url": "https://github.com/qstyler/sabre-dev-studio-node/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/SabreDevStudio/sabre-dev-studio-node/blob/master/LICENSE-MIT"
+      "url": "https://github.com/qstyler/sabre-dev-studio-node/blob/master/LICENSE-MIT"
     }
   ],
   "main": "lib/sabre-dev-studio",
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 0.10.0"
   },
   "scripts": {
     "test": "grunt nodeunit"
