@@ -1,0 +1,36 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsd="http://www.w3.org/1999/XMLSchema">
+  <SOAP-ENV:Header>
+    <eb:MessageHeader SOAP-ENV:mustUnderstand="1" eb:version="1.0">
+      <eb:From>
+        <!--"eb:PartyId" is used to specify the client application that is sending the message.-->
+        <eb:PartyId type="urn:x12.org:IO5:01">999999</eb:PartyId>
+      </eb:From>
+      <eb:To>
+        <!--"eb:PartyId" is used to specify the client application that the message is being sent to.-->
+        <eb:PartyId type="urn:x12.org:IO5:01">999999</eb:PartyId>
+      </eb:To>
+      <!--"eb:ConversationId" is used to identify the set of related messages that make up a connection and its associated session.-->
+      <eb:ConversationId>webservices.support@sabre.com</eb:ConversationId>
+      <!--"eb:Service" is used to identify the service that acts on the message.-->
+      <eb:Service eb:type="OTA">SessionCreateRQ</eb:Service>
+      <!--"eb:Action" is used to identify the action that acts on the service.-->
+      <eb:Action>SessionCreateRQ</eb:Action>
+    </eb:MessageHeader>
+    <wsse:Security xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/12/utility">
+      <wsse:UsernameToken>
+        <!--"wsse:Username" is used to specify the client application's user name.-->
+        <wsse:Username>{{user}}</wsse:Username>
+        <!--"wsse:Password" is used to specify the client application's password.-->
+        <wsse:Password>{{password}}</wsse:Password>
+        <!--"Organization" is used to specify the client application's organization, i.e. PseudoCityCode, or airline code.-->
+        <Organization>{{ipcc}}</Organization>
+        <!--"Domain" is used to specify the client application's domain, i.e. "DEFAULT" for TN-based subscribers, or the particular airline code for SabreSonic-based subscribers.-->
+        <Domain>DEFAULT</Domain>
+      </wsse:UsernameToken>
+    </wsse:Security>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <!--"returnContextID" when "true" instructs the system to return the extended Context ID.  The extended Context ID helps the system to return the most accurate response-related data.  It is recommended that users who change AAA and also utilize the FareLLSRQ, OTA_AirLowFareSearchLLSRQ, OTA_AirPriceLLSRQ, or OTA_AirRulesLLSRQ services leverage the extended Context ID feature since context is critical when it comes to these services.-->
+    <SessionCreateRQ returnContextID="true" />
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
