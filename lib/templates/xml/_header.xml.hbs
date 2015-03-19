@@ -1,0 +1,34 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsd="http://www.w3.org/1999/XMLSchema">
+  <SOAP-ENV:Header>
+    <eb:MessageHeader SOAP-ENV:mustUnderstand="1" eb:version="1.0">
+      <eb:From>
+        <!--"eb:PartyId" is used to specify the client application that is sending the message.-->
+        <eb:PartyId type="urn:x12.org:IO5:01">999999</eb:PartyId>
+      </eb:From>
+      <eb:To>
+        <!--"eb:PartyId" is used to specify the client application that the message is being sent to.-->
+        <eb:PartyId type="urn:x12.org:IO5:01">999999</eb:PartyId>
+      </eb:To>
+      <!--"eb:ConversationId" is used to identify the set of related messages that make up a connection and its associated session.-->
+      <eb:ConversationId>{{conversationId}}</eb:ConversationId>
+      <!--"eb:Action" is used to identify the action that acts on the service.-->
+      <eb:Action>{{action}}</eb:Action>
+    </eb:MessageHeader>
+    <wsse:Security xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/12/utility">
+      {{#if securityToken}}
+        <wsse:BinarySecurityToken valueType="String" EncodingType="wsse:Base64Binary">{{securityToken}}</wsse:BinarySecurityToken>
+      {{else}}
+        <wsse:UsernameToken>
+          <!--"wsse:Username" is used to specify the client application's user name.-->
+          <wsse:Username>{{user}}</wsse:Username>
+          <!--"wsse:Password" is used to specify the client application's password.-->
+          <wsse:Password>{{password}}</wsse:Password>
+          <!--"Organization" is used to specify the client application's organization, i.e. PseudoCityCode, or airline code.-->
+          <Organization>{{ipcc}}</Organization>
+          <!--"Domain" is used to specify the client application's domain, i.e. "DEFAULT" for TN-based subscribers, or the particular airline code for SabreSonic-based subscribers.-->
+          <Domain>DEFAULT</Domain>
+        </wsse:UsernameToken>
+      {{/if}}
+    </wsse:Security>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
