@@ -1,0 +1,45 @@
+[
+  null,
+  {
+    "statusCode": 200,
+    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soap-env:Envelope xmlns:soap-env=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap-env:Header><eb:MessageHeader xmlns:eb=\"http://www.ebxml.org/namespaces/messageHeader\" eb:version=\"1.0\" soap-env:mustUnderstand=\"1\"><eb:From><eb:PartyId eb:type=\"URI\">999999</eb:PartyId></eb:From><eb:To><eb:PartyId eb:type=\"URI\">999999</eb:PartyId></eb:To><eb:ConversationId>api+6605946@travelbank.com</eb:ConversationId><eb:Service eb:type=\"sabreXML\">Session</eb:Service><eb:Action>SessionCreateRS</eb:Action><eb:MessageData><eb:MessageId>48255779-51e5-4c45-9a16-a212965a547f@61</eb:MessageId><eb:Timestamp>2015-03-20T08:28:58</eb:Timestamp></eb:MessageData></eb:MessageHeader><wsse:Security xmlns:wsse=\"http://schemas.xmlsoap.org/ws/2002/12/secext\"><wsse:BinarySecurityToken valueType=\"String\" EncodingType=\"wsse:Base64Binary\">Shared/IDL:IceSess\\/SessMgr:1\\.0.IDL/Common/!ICESMS\\/ACPCRTD!ICESMSLB\\/CRT.LB!-3554388743081292123!1415651!0!1</wsse:BinarySecurityToken></wsse:Security></soap-env:Header><soap-env:Body><SessionCreateRS xmlns=\"http://www.opentravel.org/OTA/2002/11\" version=\"1\" status=\"Approved\">\t<ConversationId>api+6605946@travelbank.com</ConversationId></SessionCreateRS></soap-env:Body></soap-env:Envelope>",
+    "headers": {
+      "soapaction": "\"\"",
+      "content-type": "text/xml;charset=utf-8",
+      "content-length": "1244",
+      "date": "Fri, 20 Mar 2015 08:28:57 GMT",
+      "server": "SWS",
+      "connection": "close",
+      "vary": "Accept-Encoding"
+    },
+    "request": {
+      "uri": {
+        "protocol": "https:",
+        "slashes": true,
+        "auth": null,
+        "host": "sws3-crt.cert.sabre.com",
+        "port": 443,
+        "hostname": "sws3-crt.cert.sabre.com",
+        "hash": null,
+        "search": null,
+        "query": null,
+        "pathname": "/",
+        "path": "/",
+        "href": "https://sws3-crt.cert.sabre.com/"
+      },
+      "method": "POST",
+      "headers": {
+        "User-Agent": "node-soap/0.8.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml,text/xml;q=0.9,*/*;q=0.8",
+        "Accept-Encoding": "none",
+        "Accept-Charset": "utf-8",
+        "Connection": "close",
+        "Host": "sws3-crt.cert.sabre.com",
+        "Content-Length": 0,
+        "Content-Type": "text/xml;charset=UTF-8",
+        "SOAPAction": "OTA"
+      }
+    }
+  },
+  "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soap-env:Envelope xmlns:soap-env=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap-env:Header><eb:MessageHeader xmlns:eb=\"http://www.ebxml.org/namespaces/messageHeader\" eb:version=\"1.0\" soap-env:mustUnderstand=\"1\"><eb:From><eb:PartyId eb:type=\"URI\">999999</eb:PartyId></eb:From><eb:To><eb:PartyId eb:type=\"URI\">999999</eb:PartyId></eb:To><eb:ConversationId>api+6605946@travelbank.com</eb:ConversationId><eb:Service eb:type=\"sabreXML\">Session</eb:Service><eb:Action>SessionCreateRS</eb:Action><eb:MessageData><eb:MessageId>48255779-51e5-4c45-9a16-a212965a547f@61</eb:MessageId><eb:Timestamp>2015-03-20T08:28:58</eb:Timestamp></eb:MessageData></eb:MessageHeader><wsse:Security xmlns:wsse=\"http://schemas.xmlsoap.org/ws/2002/12/secext\"><wsse:BinarySecurityToken valueType=\"String\" EncodingType=\"wsse:Base64Binary\">Shared/IDL:IceSess\\/SessMgr:1\\.0.IDL/Common/!ICESMS\\/ACPCRTD!ICESMSLB\\/CRT.LB!-3554388743081292123!1415651!0!1</wsse:BinarySecurityToken></wsse:Security></soap-env:Header><soap-env:Body><SessionCreateRS xmlns=\"http://www.opentravel.org/OTA/2002/11\" version=\"1\" status=\"Approved\">\t<ConversationId>api+6605946@travelbank.com</ConversationId></SessionCreateRS></soap-env:Body></soap-env:Envelope>"
+]
