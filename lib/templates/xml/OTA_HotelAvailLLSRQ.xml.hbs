@@ -1,11 +1,49 @@
-<OTA_HotelAvailRQ>
+<!--"ReturnHostCommand" is used to specify whether or not to return the native host command in the response message.-->
+<OTA_HotelAvailRQ Version="2.0.0" xmlns="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <AvailRequestSegment>
-    <GuestCounts Count="2"/>
-    <HotelSearchCriteria>
+    <GuestCounts Count="1" />
+    <!--"NumProperties" is used to specify the number of results to be returned.  The default is 12.-->
+    <HotelSearchCriteria NumProperties="10">
       <Criterion>
-        <HotelRef Latitude="32.78" Longitude="-96.81"/>
-      </Criterion>
-    </HotelSearchCriteria>
-    <TimeSpan End="04-24" Start="04-22"/>
+        <!--"Award" is used to search for hotels with specific star ratings.-->
+        <Award Provider="NTM" Rating="3" /> <!-- @todo Make this variable -->
+        <!--"AirportTransportation" is used to search for hotels based upon available airport transportation.-->
+        <!--"FireSafetyApproved" is used to search for hotels based upon fire safety rating.-->
+        <HotelFeature FireSafetyApproved="true" />
+        <!--Search for hotel availability based upon a latitude/longitude.-->
+        <HotelRef Latitude="38.9444" Longitude="-77.4558" /> <!-- @todo Make this variable -->
+        <!--"DistanceDirection" is used to search for hotels up to x miles or x kilometers from an airport.-->
+        <!--"GeoCode" is used to search for geo-coded hotels .-->
+        <!--"HotelCode" is used to specify a hotel code to tells the system to search for for nearby hotels.-->
+        <!--"Index" is used to specify an index point.  Acceptable values are "C" for city, "R" for resort, "A" for airport, or "S" for suburban.-->
+        <!--"Sort" is used to sort geo-coded hotels based upon their distance from the closest reference point.  @Sort must be used in conjunction with @GeoCode.-->
+        <RefPoint GeoCode="true" Sort="true" />
+        <!--Repeat Factor=0-2-->
+        <!--"RoomAmenity" is used to search for hotels based upon bedding type.-->
+        <!--Equivalent Sabre host command: HOTDFW/22APR-24APR2/BD-A2D,**K-->
+        <!--
+        @todo Awaiting clarification from Stephanie, may not need
+        <RoomAmenity>A2D</RoomAmenity>
+        <RoomAmenity>A1*</RoomAmenity>
+        -->
+     </Criterion>
+   </HotelSearchCriteria>
+   <!--"PromotionalSpot" is used to query for promospot rates.-->
+    <!--"PromotionalSpot" can be either "C" or "L".  "C" for corporate, and "L" for leisure.-->
+    <!--"RateAssured" is used to query for assured rates.-->
+    <!--"SuppressRackRate" is used to omit rack rates from the response.-->
+    <RatePlanCandidates PromotionalSpot="C" RateAssured="true" SuppressRackRate="false">
+      <!--"Code" is used to specify a contract or negotiated rate code.-->
+      <!-- <ContractNegotiatedRateCode>SAB</ContractNegotiatedRateCode>
+      <ContractNegotiatedRateCode>TVY</ContractNegotiatedRateCode> -->
+      <!--"RatePlanCode" is used to specify a Rate Plan Code (rate type).-->
+      <!-- <RatePlanCode>GOV</RatePlanCode>
+      <RatePlanCode>N</RatePlanCode> -->
+    </RatePlanCandidates>
+    <!--"End" is used to return the last date of the specified hotel stay.-->
+    <!--"End" follows this format: MM-DD-->
+    <!--"Start" is used to return the first date of the specified hotel stay.-->
+    <!--"Start" follows this format: MM-DD-->
+    <TimeSpan End="10-30" Start="10-15" /> <!-- @todo Make this variable -->
   </AvailRequestSegment>
 </OTA_HotelAvailRQ>
