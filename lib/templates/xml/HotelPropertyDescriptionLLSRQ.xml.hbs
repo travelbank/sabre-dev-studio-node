@@ -3,12 +3,12 @@
 <HotelPropertyDescriptionRQ ReturnHostCommand="false" Version="2.1.0" xmlns="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <AvailRequestSegment>
     <!--"Count" is used to specify the number of room occupants - up to 9.-->
-    <GuestCounts Count="1"/>
+    <GuestCounts Count="1" />
     <HotelSearchCriteria>
       <Criterion>
         <!--"HotelCode" is used to specify the particular hotel property number.-->
         <!--"UnitOfMeasure" is used to override the point of sale location's default search measurement. MI, or KM-->
-        <HotelRef HotelCode="1234567" />
+        <HotelRef HotelCode="{{hotelCode}}" />
       </Criterion>
     </HotelSearchCriteria>
     <!--"AdditionalRateInfo" is used to allow a client application to request additional room rate-related information.  In order to utilize this element the client application must have first performed a successful HotelPropertyDescriptionLLSRQ.  @AdditionalRateInfo cannot combine with any other qualifiers.-->
@@ -16,6 +16,7 @@
     <!--RateList equivalent Sabre host command: HOD1234567/21DEC-24DEC2/*R-->
     <!--NoRateList equivalent Sabre host command: HOD1234567/21DEC-24DEC2/-R-->
     <!-- <RatePlanCandidates AdditionalRateInfo="true" NoRateList="false" RateList="true"> -->
+    <RatePlanCandidates>
       <!--Optional-->
       <!--Repeat Factor=0-99-->
       <!--"ContractNegotiatedRateCode" is used to specify a contract or negotiated rate code.-->

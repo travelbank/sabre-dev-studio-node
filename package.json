@@ -36,6 +36,7 @@
     "moment": "~2.6.0"
   },
   "dependencies": {
+    "MD5": "^1.2.1",
     "async": "^0.9.0",
     "bunyan": "~0.22.3",
     "file-exists": "^0.1.1",
