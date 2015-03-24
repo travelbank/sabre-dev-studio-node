@@ -16,7 +16,7 @@
     <!--RateList equivalent Sabre host command: HOD1234567/21DEC-24DEC2/*R-->
     <!--NoRateList equivalent Sabre host command: HOD1234567/21DEC-24DEC2/-R-->
     <!-- <RatePlanCandidates AdditionalRateInfo="true" NoRateList="false" RateList="true"> -->
-    <RatePlanCandidates>
+    <RatePlanCandidates RateList="true">
       <!--Optional-->
       <!--Repeat Factor=0-99-->
       <!--"ContractNegotiatedRateCode" is used to specify a contract or negotiated rate code.-->
@@ -43,6 +43,6 @@
     <!--"End" follows this format: MM-DD-->
     <!--"Start" is used to return the first date of the specified hotel stay.-->
     <!--"Start" follows this format: MM-DD-->
-    <TimeSpan End="10-30" Start="10-15" /> <!-- @todo Make this variable -->
+    <TimeSpan End="{{endDate}}" Start="{{startDate}}" />
   </AvailRequestSegment>
 </HotelPropertyDescriptionRQ>

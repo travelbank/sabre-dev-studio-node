@@ -6,12 +6,16 @@
     <HotelSearchCriteria NumProperties="10">
       <Criterion>
         <!--"Award" is used to search for hotels with specific star ratings.-->
-        <Award Provider="NTM" Rating="3" /> <!-- @todo Make this variable -->
+        {{#if awardRating}}
+          <Award Provider="NTM" Rating="{{awardRating}}" />
+        {{/if}}
         <!--"AirportTransportation" is used to search for hotels based upon available airport transportation.-->
         <!--"FireSafetyApproved" is used to search for hotels based upon fire safety rating.-->
         <HotelFeature FireSafetyApproved="true" />
         <!--Search for hotel availability based upon a latitude/longitude.-->
-        <HotelRef Latitude="38.9444" Longitude="-77.4558" /> <!-- @todo Make this variable -->
+        {{#if latitude}}
+          <HotelRef Latitude="{{latitude}}" Longitude="{{longitude}}" /> <!-- @todo Should we use this? Might not need -->
+        {{/if}}
         <!--"DistanceDirection" is used to search for hotels up to x miles or x kilometers from an airport.-->
         <!--"GeoCode" is used to search for geo-coded hotels .-->
         <!--"HotelCode" is used to specify a hotel code to tells the system to search for for nearby hotels.-->
@@ -32,7 +36,8 @@
     <!--"PromotionalSpot" can be either "C" or "L".  "C" for corporate, and "L" for leisure.-->
     <!--"RateAssured" is used to query for assured rates.-->
     <!--"SuppressRackRate" is used to omit rack rates from the response.-->
-    <RatePlanCandidates PromotionalSpot="C" RateAssured="true" SuppressRackRate="false">
+    <!-- <RatePlanCandidates PromotionalSpot="C" RateAssured="true" SuppressRackRate="false"> -->
+    <RatePlanCandidates RateAssured="true">
       <!--"Code" is used to specify a contract or negotiated rate code.-->
       <!-- <ContractNegotiatedRateCode>SAB</ContractNegotiatedRateCode>
       <ContractNegotiatedRateCode>TVY</ContractNegotiatedRateCode> -->
@@ -44,6 +49,6 @@
     <!--"End" follows this format: MM-DD-->
     <!--"Start" is used to return the first date of the specified hotel stay.-->
     <!--"Start" follows this format: MM-DD-->
-    <TimeSpan End="10-30" Start="10-15" /> <!-- @todo Make this variable -->
+    <TimeSpan End="{{endDate}}" Start="{{startDate}}" />
   </AvailRequestSegment>
 </OTA_HotelAvailRQ>
