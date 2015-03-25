@@ -1,0 +1,35 @@
+<!--"ReturnHostCommand" is used to specify whether or not to return the native host command in the response message.-->
+<OTA_VehAvailRateRQ ReturnHostCommand="false" Version="2.4.0" xmlns="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!--"QueryType" is used to specify the type of RQ format, i.e Shop (CF) or Quote (CQ).-->
+  <!--"RPH" is used to specify a line from a Shop-based OTA_VehAvailRateLLSRQ response or a VehLocationListLLSRQ (CLF) response to query from if applicable.-->
+  <!--Clients can also use RPH to specify VehLocationFinder in order to view quote details from a previous  VehLocationFinderLLSRQ response.-->
+  <VehAvailRQCore QueryType="Shop">
+    <!--"CC_Rate" is used to specify a credit card code.-->
+    <!--"CurrencyCode" is used to specify a currency code if applicable.-->
+    <!--"MileagePlan" is used to specify a mileage plan if applicable.-->
+    <!--"RateCategory" is used to specify a rate category if applicable.-->
+    <!--"RatePlan" is used to specify a rate qualifier if applicable.-->
+    <RateQualifier CurrencyCode="USD">
+    </RateQualifier>
+    {{#if vehicleTypes}}
+      <VehPrefs>
+        <VehPref>
+          <!--Repeat Factor=0-10-->
+          <!--"VehType" is used to specify the vehicle category if applicable.-->
+          {{#each vehicleTypes}}
+            <VehType>{{this}}</VehType>
+          {{/each}}
+        </VehPref>
+      </VehPrefs>
+    {{/if}}
+    <!--"PickUpDateTime" is used to specify the rental pickup date/time-related information.-->
+    <!--"PickUpDateTime" follows this format: MM-DDTHH:MM-->
+    <!--"ReturnDateTime" is used to specify the rental return date/time-related information.-->
+    <!--"ReturnDateTime" follows this format: MM-DDTHH:MM-->
+    <VehRentalCore PickUpDateTime="{{startDate}}" ReturnDateTime="{{endDate}}">
+      <!--"LocationCode" is used to specify the vehicle pick up location.-->
+      <!--"CityLocation" is used to specify where the vendor is located, i.e. North, South, East, West, City, Resort, Airport, Off-Airport, Port, Rail, or Hotel if applicable.-->
+      <PickUpLocation LocationCode="{{airportCode}}" />
+    </VehRentalCore>
+  </VehAvailRQCore>
+</OTA_VehAvailRateRQ>
