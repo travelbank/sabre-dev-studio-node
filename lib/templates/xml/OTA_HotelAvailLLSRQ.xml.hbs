@@ -3,12 +3,14 @@
   <AvailRequestSegment>
     <GuestCounts Count="1" />
     <!--"NumProperties" is used to specify the number of results to be returned.  The default is 12.-->
-    <HotelSearchCriteria NumProperties="50">
+    <HotelSearchCriteria NumProperties="100">
       <Criterion>
         <!--"Award" is used to search for hotels with specific star ratings.-->
-        {{#if awardRating}}
-          <Award Provider="NTM" Rating="{{awardRating}}" />
-        {{/if}}
+        {{! Depreciating for now
+        { { #if hotelRating } }
+          <Award Provider="NTM" Rating="{ { hotelRating } }" />
+        { { /if } }
+        }}
         <!--"AirportTransportation" is used to search for hotels based upon available airport transportation.-->
         <!--"FireSafetyApproved" is used to search for hotels based upon fire safety rating.-->
         <HotelFeature FireSafetyApproved="true" />
@@ -21,7 +23,7 @@
         <!--"HotelCode" is used to specify a hotel code to tells the system to search for for nearby hotels.-->
         <!--"Index" is used to specify an index point.  Acceptable values are "C" for city, "R" for resort, "A" for airport, or "S" for suburban.-->
         <!--"Sort" is used to sort geo-coded hotels based upon their distance from the closest reference point.  @Sort must be used in conjunction with @GeoCode.-->
-        <RefPoint GeoCode="true" Sort="true" />
+        <RefPoint DistanceDirection="{{hotelDistance}}" GeoCode="true" Sort="true" />
         <!--Repeat Factor=0-2-->
         <!--"RoomAmenity" is used to search for hotels based upon bedding type.-->
         <!--Equivalent Sabre host command: HOTDFW/22APR-24APR2/BD-A2D,**K-->
