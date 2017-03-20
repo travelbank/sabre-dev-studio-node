@@ -1,7 +1,7 @@
 {
   "name": "sabre-dev-studio",
   "description": "NodeJS wrapper for the Sabre Dev Studio API",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "homepage": "http://developer.sabre.com",
   "author": {
     "name": "Barrett Clark",
