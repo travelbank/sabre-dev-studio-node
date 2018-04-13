@@ -1,15 +1,11 @@
-<!--"ResponseType" Indicates whether the response should be restricted to Fares or Schedules or provide Availability including, where applicable, Fares.-->
-<rs:RailShopRQ Version="1.15.0" ResponseType="Fares" MarketingCarrier="2V" PrimaryLangID="en-us" xmlns:rs="http://webservices.sabre.com/sabreXML/RCP/rs" xmlns:rcmn="http://webservices.sabre.com/sabreXML/RCP/common">
-	<rs:OffersSearchCriteria>
-		<!--A collection of information about the locations for which availability is to be checked. It may be repeated to query availability of each individual train in multiple train segments for a specified route.-->
-		<rs:AvailQueryCriteria>
-			<rs:DepartureDateTime>{{date}}</rs:DepartureDateTime>
-			<rs:OriginAndDestination>
-				<!--"Origin" Travel origin location.-->
-				<rs:Origin LocationCode="{{from}}"/>
-				<!--"Destination" Travel destination location.-->
-				<rs:Destination LocationCode="{{to}}"/>
-			</rs:OriginAndDestination>
-		</rs:AvailQueryCriteria>
-	</rs:OffersSearchCriteria>
-</rs:RailShopRQ>
+<ns10:RailShopRQ xmlns:ns10="http://webservices.sabre.com/sabreXML/RCP/rs" xmlns:ns11="http://webservices.sabre.com/sabreXML/RCP/rsm" xmlns:ns12="http://webservices.sabre.com/sabreXML/RCP/rd" xmlns:ns13="http://webservices.sabre.com/sabreXML/RCP/rrep" xmlns:ns14="http://webservices.sabre.com/sabreXML/RCP/ris" xmlns:ns15="http://webservices.sabre.com/sabreXML/RCP/rpnrs" xmlns:ns16="http://webservices.sabre.com/sabreXML/RCP/rrc" xmlns:ns17="http://webservices.sabre.com/sabreXML/RCP/rrs" xmlns:ns18="http://webservices.sabre.com/sabreXML/RCP/rrr" xmlns:ns19="http://webservices.sabre.com/sabreXML/RCP/rmas" xmlns:ns2="http://www.w3.org/2000/09/xmldsig#" xmlns:ns20="http://webservices.sabre.com/sabreXML/RCP/rl" xmlns:ns21="http://webservices.sabre.com/sabreXML/RCP/rmb" xmlns:ns22="http://webservices.sabre.com/sabreXML/RCP/rmt" xmlns:ns3="http://schemas.xmlsoap.org/ws/2002/12/secext" xmlns:ns5="http://www.ebxml.org/namespaces/messageHeader" xmlns:ns6="http://www.w3.org/1999/xlink" xmlns:ns7="urn:schemas-sabre-com:soap-header-debug" xmlns:ns8="http://webservices.sabre.com/sabreXML/RCP/ota" xmlns:ns9="http://webservices.sabre.com/sabreXML/RCP/common" CorrelationID="123aa4" MarketingCarrier="2V" PrimaryLangID="en" ResponseType="Fares" SearchType="AVAIL" Version="1.20.0">
+  <ns10:OffersSearchCriteria>
+    <ns10:AvailQueryCriteria JourneyDirection="Outbound" MaxConnections="0">
+    <ns10:DepartureDateTime>{{date}}</ns10:DepartureDateTime>
+      <ns10:OriginAndDestination>
+      <ns10:Origin LocationCode="{{from}}"/>
+      <ns10:Destination LocationCode="{{to}}"/>
+      </ns10:OriginAndDestination>
+    </ns10:AvailQueryCriteria>
+  </ns10:OffersSearchCriteria>
+</ns10:RailShopRQ>
